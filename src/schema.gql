@@ -9,11 +9,11 @@ type User {
 }
 
 type Query {
-  findAll: [User!]!
+  users: [User!]!
 }
 
 type Mutation {
-  create(data: CreateUserInput!): User!
+  createUser(data: CreateUserInput!): User!
 }
 
 input CreateUserInput {

@@ -10,12 +10,12 @@ export class UserResolver {
     ) {}
 
     @Query(() => [User])
-    async findAll(): Promise<User[]> {
+    async users(): Promise<User[]> {
         return this.userService.findAll();
     }
 
     @Mutation(() => User)
-    async create(
+    async createUser(
         @Args('data') data: CreateUserInput
     ): Promise<User> {
         return this.userService.create(data);
