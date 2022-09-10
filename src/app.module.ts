@@ -13,7 +13,9 @@ import { UserModule } from './user/user.module';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'nest_api'
+      database: 'nest_api',
+      entities: ["dist/**/*.entity{.ts,.js}"],
+      synchronize: true
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
