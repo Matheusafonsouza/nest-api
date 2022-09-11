@@ -36,4 +36,11 @@ export class UserResolver {
     ): Promise<User> {
         return this.userService.update(id, data);
     }
+
+    @Mutation(() => Boolean)
+    async deleteUser(
+        @Args('id') id: string
+    ): Promise<boolean> {
+        return this.userService.delete(id);
+    }
 }
