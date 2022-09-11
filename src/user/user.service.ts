@@ -16,7 +16,7 @@ export class UserService {
     }
 
     async findById(id: string): Promise<User> {
-        const user = this.userRepository.findOne({ where: { id } });
+        const user = await this.userRepository.findOne({ where: { id } });
         
         if (!user) {
             throw new NotFoundException('User with this id was not found.')
@@ -26,7 +26,7 @@ export class UserService {
     }
 
     async create(data: CreateUserInput): Promise<User> {
-        const user = await this.userRepository.create(data);
+        const user = this.userRepository.create(data);
         const userSaved = await this.userRepository.save(user);
 
         if (!userSaved) {
